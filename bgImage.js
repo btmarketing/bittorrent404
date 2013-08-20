@@ -71,51 +71,51 @@ function bgImage_update(step){
             }
             stepPixels();
       }
-      else if(data===undefined){
+      // else if(data===undefined){
 
-            var buffHeight = Math.floor(buffer.height*relYSize);
-            var pixHeight = Math.floor(bg.height*relYSize);
+      //       var buffHeight = Math.floor(buffer.height*relYSize);
+      //       var pixHeight = Math.floor(bg.height*relYSize);
 
-            data = pixelsContext.getImageData(0,0,pixels.width,pixHeight);
-            dirtyData = pixelsContext.getImageData(0,0,pixels.width,pixHeight);
-      }
-      else{
-            var pixHeight = Math.floor(bg.height*relYSize);
+      //       data = pixelsContext.getImageData(0,0,pixels.width,pixHeight);
+      //       dirtyData = pixelsContext.getImageData(0,0,pixels.width,pixHeight);
+      // }
+      // else{
+      //       var pixHeight = Math.floor(bg.height*relYSize);
 
-            var test = true;
-            var randoThing = Math.floor(Math.random()*300);
-            var offset = Math.floor(Math.random()*(data.data.length/4))*4;
+      //       var test = true;
+      //       var randoThing = Math.floor(Math.random()*300);
+      //       var offset = Math.floor(Math.random()*(data.data.length/4))*4;
 
-            var r = Math.floor(Math.random()*55);
-            var g = Math.floor(Math.random()*55);
-            var b = Math.floor(Math.random()*55);
+      //       var r = Math.floor(Math.random()*55);
+      //       var g = Math.floor(Math.random()*55);
+      //       var b = Math.floor(Math.random()*55);
 
-            var rX = Math.floor(Math.random()*pixels.width*4);
-            var rY = Math.floor(Math.random()*pixHeight);
-            var divider = Math.floor(Math.pow(Math.random(),2)*2000)+20;
+      //       var rX = Math.floor(Math.random()*pixels.width*4);
+      //       var rY = Math.floor(Math.random()*pixHeight);
+      //       var divider = Math.floor(Math.pow(Math.random(),2)*2000)+20;
 
-            for(var x=0;x<pixels.width*4;x+=4){
-                  for(var y=0;y<pixHeight;y++){
+      //       for(var x=0;x<pixels.width*4;x+=4){
+      //             for(var y=0;y<pixHeight;y++){
 
-                        var totalDist = Math.sqrt(Math.pow(x-rX,2)+Math.pow(y*4-rY,2));
-                        if(Math.floor(Math.pow(totalDist/divider,2))%2===0){
-                              test = true;
-                        }
-                        else{
-                              test = false;
-                        }
+      //                   var totalDist = Math.sqrt(Math.pow(x-rX,2)+Math.pow(y*4-rY,2));
+      //                   if(Math.floor(Math.pow(totalDist/divider,2))%2===0){
+      //                         test = true;
+      //                   }
+      //                   else{
+      //                         test = false;
+      //                   }
 
-                        if(test){
-                              var i=x+(y*pixels.width*4);
-                              var tempIndex = (i+offset)%data.data.length;
-                              dirtyData.data[i] = Math.abs(r-data.data[tempIndex]);
-                              dirtyData.data[i+1] = Math.abs(g-data.data[tempIndex+1]);
-                              dirtyData.data[i+2] = Math.abs(b-data.data[tempIndex+2]);
-                        }
-                  }
-            }
-            pixelsContext.putImageData(dirtyData,0,0);
-      }
+      //                   if(test){
+      //                         var i=x+(y*pixels.width*4);
+      //                         var tempIndex = (i+offset)%data.data.length;
+      //                         dirtyData.data[i] = Math.abs(r-data.data[tempIndex]);
+      //                         dirtyData.data[i+1] = Math.abs(g-data.data[tempIndex+1]);
+      //                         dirtyData.data[i+2] = Math.abs(b-data.data[tempIndex+2]);
+      //                   }
+      //             }
+      //       }
+      //       pixelsContext.putImageData(dirtyData,0,0);
+      // }
 }
 
 /////////////////////////////////////////////
